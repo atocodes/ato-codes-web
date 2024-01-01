@@ -1,0 +1,63 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#anim-main {
+  position: absolute;
+  height: 100vh;
+  bottom: 0;
+  width: 375px;
+  right: -1px;
+}
+
+#container,
+#avatar {
+  position: relative;
+  height: 100%;
+}
+
+#avatar img {
+  position: absolute;
+  bottom: 0;
+}
+#avatar #avatar-black {
+  left: 2px;
+}
+#avatar #avatar-white {
+  left: -3px;
+}
+#avatar #avatar-glow {
+  opacity: 80%;
+  filter: blur(5px);
+}
+
+#motion-f,
+#motion-b {
+  position: absolute;
+  top: calc(100vh - 350px);
+  height: 220px;
+  width: 370px;
+  animation: anim 0.8s steps(4) forwards;
+  animation-iteration-count: infinite;
+}
+
+#motion-f {
+  background-image: url("../assets/imgs/anim-seq/anim-f.png");
+  z-index: 1;
+}
+
+#motion-b {
+  background-image: url("../assets/imgs/anim-seq/anim-b.png");
+  z-index: -1;
+}
+
+@keyframes anim {
+  from {
+    background-position: 5000px 0;
+  }
+}/*# sourceMappingURL=style.css.map */
