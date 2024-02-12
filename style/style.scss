@@ -1,65 +1,216 @@
 body {
   height: 100vh;
   width: 100vw;
-  position: relative;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background-color: rgb(0, 134, 179);
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-#anim-main {
-  position: absolute;
-  height: 100vh;
-  bottom: 0;
-  width: 375px;
-  right: -1px;
+h3,
+h4,
+p,
+a {
+  margin: 0;
+  color: white;
+  cursor: default;
 }
 
-#container,
-#avatar {
-  position: relative;
+a {
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: 0.5s;
+}
+
+a:hover {
+  color: rgb(69, 69, 69);
+}
+
+.body-text {
+  font-size: 1.5rem;
+}
+
+.fa-brands {
+  transition: 1s;
+  font-size: 1.3rem;
+}
+
+.fa-github:hover {
+  color: #171515;
+}
+
+.fa-instagram:hover {
+  color: #f56040;
+}
+
+.fa-tiktok:hover {
+  color: #000000;
+}
+
+.title {
+  font-size: 2rem;
+  color: rgba(255, 230, 0, 0.917);
+}
+
+#card {
   height: 100%;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: center;
+  p {
+    font-size: 1rem;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    // text-decoration: underline;
+  }
 }
 
-#avatar {
+#nav {
+  height: 10%;
+  width: 90%;
+
   img {
-    position: absolute;
-    bottom: 0;
-  }
-  #avatar-black {
-    left: 2px;
-  }
-  #avatar-white {
-    left: -3px;
-  }
-  #avatar-glow {
-    opacity: 80%;
-    filter: blur(5px);
+    width: 60px;
   }
 }
 
-#motion-f,
-#motion-b {
-  position: absolute;
-  top: calc(100vh - 350px);
-  height: 220px;
-  width: 370px;
-  animation: anim 0.8s steps(4) forwards;
-  animation-iteration-count: infinite;
+#home {
+  width: 90%;
+  height: 90%;
+  position: relative;
+
+  #description {
+    grid-area: description;
+    height: 100%;
+    width: 100%;
+    // border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  #container {
+    opacity: 50%;
+    height: 100%;
+    z-index: -1;
+    // bottom: -25px;
+    // width: 375px;
+    // right: -1px;
+
+    #motion-f,
+    #motion-b {
+      position: absolute;
+      top: calc(100vh - 410px);
+      right: 12vw;
+      height: 220px;
+      width: 370px;
+      animation: anim 0.8s steps(4) forwards;
+      animation-iteration-count: infinite;
+    }
+
+    #motion-f {
+      background-image: url("../assets/imgs/hero-img/anim-seq/anim-f.png");
+      z-index: 1;
+    }
+
+    #motion-b {
+      background-image: url("../assets/imgs/hero-img/anim-seq/anim-b.png");
+      z-index: -1;
+    }
+
+    @keyframes anim {
+      from {
+        background-position: 5000px 0;
+      }
+    }
+
+    #container,
+    #avatar {
+      position: absolute;
+      height: 100%;
+      top: 0;
+      right: 0;
+    }
+
+    #avatar {
+      img {
+        position: absolute;
+        bottom: 0;
+      }
+      #avatar-black,
+      #avatar-white,
+      img {
+        right: 10vw;
+        // bottom: 0;
+      }
+      #avatar-glow {
+        opacity: 80%;
+        filter: blur(5px);
+      }
+    }
+  }
 }
 
-#motion-f {
-  background-image: url("../assets/imgs/anim-seq/anim-f.png");
+#bottom-left {
+  width: 90%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+  justify-content: space-between;
   z-index: 1;
+  position: absolute;
+  bottom: 2vh;
+  font-size: 1rem;
+
+  #bottom-card,
+  #social-media {
+    width: 50%;
+    height: 100%;
+  }
+
+  #social-media {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
 }
 
-#motion-b {
-  background-image: url("../assets/imgs/anim-seq/anim-b.png");
-  z-index: -1;
+#word-art {
+  position: absolute;
+  height: 50vw;
+  width: 50vw;
+  left: 25vw;
+  top: 10vh;
 }
 
-@keyframes anim {
-  from {
-    background-position: 5000px 0;
+@media screen and (min-width: 768px) {
+  #home {
+    display: grid;
+    grid-template-columns: 60% 50%;
+    grid-template-rows: 100%;
+    grid-template-areas: "description anim";
+
+    #container {
+      position: relative;
+      grid-area: anim;
+      z-index: -1;
+      opacity: 100%;
+
+      #avatar {
+        position: relative;
+        height: 100%;
+        top: 25px;
+      }
+    }
   }
 }

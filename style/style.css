@@ -1,63 +1,194 @@
 body {
   height: 100vh;
   width: 100vw;
-  position: relative;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background-color: rgb(0, 134, 179);
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-#anim-main {
-  position: absolute;
-  height: 100vh;
-  bottom: 0;
-  width: 375px;
-  right: -1px;
+h3,
+h4,
+p,
+a {
+  margin: 0;
+  color: white;
+  cursor: default;
 }
 
-#container,
-#avatar {
-  position: relative;
+a {
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: 0.5s;
+}
+
+a:hover {
+  color: rgb(69, 69, 69);
+}
+
+.body-text {
+  font-size: 1.5rem;
+}
+
+.fa-brands {
+  transition: 1s;
+  font-size: 1.3rem;
+}
+
+.fa-github:hover {
+  color: #171515;
+}
+
+.fa-instagram:hover {
+  color: #f56040;
+}
+
+.fa-tiktok:hover {
+  color: #000000;
+}
+
+.title {
+  font-size: 2rem;
+  color: rgba(255, 230, 0, 0.917);
+}
+
+#card {
   height: 100%;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: center;
+}
+#card p {
+  font-size: 1rem;
+}
+#card .title {
+  font-size: 1.3rem;
 }
 
-#avatar img {
-  position: absolute;
-  bottom: 0;
+#nav {
+  height: 10%;
+  width: 90%;
 }
-#avatar #avatar-black {
-  left: 2px;
-}
-#avatar #avatar-white {
-  left: -3px;
-}
-#avatar #avatar-glow {
-  opacity: 80%;
-  filter: blur(5px);
+#nav img {
+  width: 60px;
 }
 
-#motion-f,
-#motion-b {
+#home {
+  width: 90%;
+  height: 90%;
+  position: relative;
+}
+#home #description {
+  grid-area: description;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+#home #container {
+  opacity: 50%;
+  height: 100%;
+  z-index: -1;
+}
+#home #container #motion-f,
+#home #container #motion-b {
   position: absolute;
-  top: calc(100vh - 350px);
+  top: calc(100vh - 410px);
+  right: 12vw;
   height: 220px;
   width: 370px;
   animation: anim 0.8s steps(4) forwards;
   animation-iteration-count: infinite;
 }
-
-#motion-f {
-  background-image: url("../assets/imgs/anim-seq/anim-f.png");
+#home #container #motion-f {
+  background-image: url("../assets/imgs/hero-img/anim-seq/anim-f.png");
   z-index: 1;
 }
-
-#motion-b {
-  background-image: url("../assets/imgs/anim-seq/anim-b.png");
+#home #container #motion-b {
+  background-image: url("../assets/imgs/hero-img/anim-seq/anim-b.png");
   z-index: -1;
 }
-
 @keyframes anim {
   from {
     background-position: 5000px 0;
+  }
+}
+#home #container #container,
+#home #container #avatar {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+#home #container #avatar img {
+  position: absolute;
+  bottom: 0;
+}
+#home #container #avatar #avatar-black,
+#home #container #avatar #avatar-white,
+#home #container #avatar img {
+  right: 10vw;
+}
+#home #container #avatar #avatar-glow {
+  opacity: 80%;
+  filter: blur(5px);
+}
+
+#bottom-left {
+  width: 90%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+  justify-content: space-between;
+  z-index: 1;
+  position: absolute;
+  bottom: 2vh;
+  font-size: 1rem;
+}
+#bottom-left #bottom-card,
+#bottom-left #social-media {
+  width: 50%;
+  height: 100%;
+}
+#bottom-left #social-media {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#word-art {
+  position: absolute;
+  height: 50vw;
+  width: 50vw;
+  left: 25vw;
+  top: 10vh;
+}
+
+@media screen and (min-width: 768px) {
+  #home {
+    display: grid;
+    grid-template-columns: 60% 50%;
+    grid-template-rows: 100%;
+    grid-template-areas: "description anim";
+  }
+  #home #container {
+    position: relative;
+    grid-area: anim;
+    z-index: -1;
+    opacity: 100%;
+  }
+  #home #container #avatar {
+    position: relative;
+    height: 100%;
+    top: 25px;
   }
 }/*# sourceMappingURL=style.css.map */
